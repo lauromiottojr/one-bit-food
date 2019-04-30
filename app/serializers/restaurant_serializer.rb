@@ -1,3 +1,23 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id
+  include Rails.application.routes.url_helpers # importando o helpers
+ 
+  attributes :id, :name, :description, :review, :status, :delivery_tax, :state,
+    :city, :street, :neighborhood, :number, :complement,
+    :reference, :cep, :image_url, :category_title
+ 
+  has_many :product_categories, if: -> { @instance_options[:product_categories]} # renderiza tambem as categorias de produtos
+    # if -> { @instance_options[:product_categories]} == true
+ 
+  def image_url
+    rails_blob_url(object.image)
+  end
+ 
+  def review
+    object.reviews&.average(:value) # object = restaurant.todos os reviews associados&para tentar caso exista os reviews
+    # media(do valor do review)
+  end
+ 
+  def category_title
+    "cozinha #{object.category&.title}"
+  end
 end
