@@ -12,6 +12,12 @@ class RestaurantsController < ApplicationController
   end
 
   def search
+    @restaurants = Restaurant.search( # busca um restaurante e o resultado coloca em @restaurants
+      name_or_description_cont: params[:q] # quero encontrar no nome ou na desquição o parametro 'q', que é o parametro passado na busca
+      ).result
+    @restaurants = @restaurants.near(params[:city]) if params[:city]
+    # se o parametro city for passado, ele busca o resultado mais proximo
+    render json: @restaurants
   end
 
   private
