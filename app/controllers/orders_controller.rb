@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
   end
    
   def show
-    render json: @order
+    render json: @order # renderiza a order
   end
    
   private
