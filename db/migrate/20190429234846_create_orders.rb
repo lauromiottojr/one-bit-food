@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
       t.string :phone_number
       t.float :total_value
       t.string :address
-      t.integer :status
+      t.integer :status, default: 0
       t.references :restaurant, foreign_key: true
 
       t.timestamps
