@@ -81,6 +81,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     puma (3.12.1)
     rack (2.0.7)
+    rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -140,13 +141,14 @@ DEPENDENCIES
   byebug
   geocoder (~> 1.5, >= 1.5.1)
   puma (~> 3.11)
+  rack-cors
   rails (~> 5.2.3)
   ransack
   sqlite3 (~> 1.4, >= 1.4.1)
   tzinfo-data
 
 RUBY VERSION
-   ruby 2.5.5p157
+   ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.1
+   1.17.2

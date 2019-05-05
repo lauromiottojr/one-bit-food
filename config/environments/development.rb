@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.active_storage.service = :local # deixar as imagens local
-  Rails.application.routes.default_url_options[:host] = 'localhost:3000' # rota padrão
+  Rails.application.routes.default_url_options[:host] = 'localhost:3001' # rota padrão
 
   # Do not eager load code on boot.
   config.eager_load = false

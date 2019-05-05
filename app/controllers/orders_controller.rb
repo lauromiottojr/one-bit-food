@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.new(order_params)
     if order.save
-      render json: @order, status: :created # se der certo ele renderiza a order
+      render json: order, status: :created # se der certo ele renderiza a order
     else
       render json: order.errors, status: :unprocessable_entity # se der erro, ele renderiza os erros
     end
